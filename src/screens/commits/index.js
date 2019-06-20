@@ -76,7 +76,7 @@ class CommitsList extends Component {
           </View>
         )}
         ListFooterComponentStyle={{
-          marginBottom: 50
+          marginBottom: 20
         }}
       />
     );
