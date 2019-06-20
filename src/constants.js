@@ -1,5 +1,6 @@
 export const USER = "user";
 export const BASE_URL = "https://api.github.com";
+export const AUTH = 'auth';
 
 export const colors = {
   color_primary: "#eb2f64",

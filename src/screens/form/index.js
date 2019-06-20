@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { View, Text, TextInput, AsyncStorage } from "react-native";
 import axios from "axios";
+import { connect } from "react-redux";
 import styles from "./styles";
 import Button from "../../components/button";
 import { BASE_URL, USER, colors } from "../../constants";
+import { handleAuth } from "../../actions";
 
 class Form extends Component {
   static navigationOptions = {
@@ -16,7 +18,6 @@ class Form extends Component {
   };
   async componentDidMount() {
     try {
-      console.log("updateLoginState", this.props.updateLoginState);
       const stringUser = await AsyncStorage.getItem(USER);
       const user = JSON.parse(stringUser);
       this.setState({ user });
@@ -54,7 +55,9 @@ class Form extends Component {
   };
 
   logout = () => {
-    AsyncStorage.removeItem(USER, () => {});
+    AsyncStorage.removeItem(USER, () => {
+      this.props.dispatch(handleAuth(false));
+    });
   };
 
   render() {
@@ -85,4 +88,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default connect()(Form);

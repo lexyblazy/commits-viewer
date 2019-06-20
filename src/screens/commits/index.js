@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { FlatList, View, ActivityIndicator, AsyncStorage } from "react-native";
 import axios from "axios";
+import { connect } from "react-redux";
 import CommitCard from "../../components/commitCard";
-import { BASE_URL, USER } from "../../constants";
+import Button from "../../components/button";
+import { BASE_URL, USER, colors } from "../../constants";
+import { handleAuth } from "../../actions";
 
 class CommitsList extends Component {
   state = {
@@ -13,6 +16,7 @@ class CommitsList extends Component {
   };
   async componentDidMount() {
     const { navigation } = this.props;
+    navigation.setParams({ logout: this.logout });
     this.page = 1;
     const commits = navigation.getParam("commits", []);
     try {
@@ -23,10 +27,22 @@ class CommitsList extends Component {
       alert("An error occurred");
     }
   }
-  static navigationOptions = {
-    title: "Commits"
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: "Commits",
+    headerRight: (
+      <Button
+        onPress={navigation.getParam("logout")}
+        text="Logout"
+        color={colors.color_dark}
+      />
+    )
+  });
 
+  logout = () => {
+    AsyncStorage.removeItem(USER, () => {
+      this.props.dispatch(handleAuth(false));
+    });
+  };
   loadMoreCommits = async () => {
     const { navigation } = this.props;
     const { user } = this.state;
@@ -61,7 +77,6 @@ class CommitsList extends Component {
 
   renderCommits = () => {
     const { commits = [], loading } = this.state;
-    console.log(commits[1])
     return (
       <FlatList
         data={commits}
@@ -90,4 +105,4 @@ class CommitsList extends Component {
   }
 }
 
-export default CommitsList;
+export default connect()(CommitsList);

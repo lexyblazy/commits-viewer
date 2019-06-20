@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { View, AsyncStorage } from "react-native";
 import OAuthManager from "react-native-oauth";
 import Config from "react-native-config";
+import { connect } from "react-redux";
 import Button from "../../components/button";
 import styles from "./styles";
 import { USER, colors } from "../../constants";
+import { handleAuth } from "../../actions";
 
 const manager = new OAuthManager("AskSteve");
 
@@ -18,13 +20,13 @@ manager.configure(config);
 
 class Home extends Component {
   login = () => {
-    const { updateLoginState } = this.props;
+    const { dispatch } = this.props;
     manager
       .authorize("github")
       .then(resp => {
         AsyncStorage.setItem(USER, JSON.stringify(resp.response), err => {
           if (!err) {
-            updateLoginState && updateLoginState();
+            dispatch(handleAuth(true));
           }
         });
       })
@@ -45,4 +47,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default connect()(Home);
