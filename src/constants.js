@@ -2,7 +2,7 @@ export const USER = "user";
 export const BASE_URL = "https://api.github.com";
 
 export const colors = {
-  color_primary: " #eb2f64",
+  color_primary: "#eb2f64",
   color_primary_light: "#ff3366",
   color_primary_dark: "#ba265d",
   color_grey_light_1: "#faf9f9",

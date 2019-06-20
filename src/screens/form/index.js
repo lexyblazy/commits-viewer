@@ -3,7 +3,7 @@ import { View, Text, TextInput, AsyncStorage } from "react-native";
 import axios from "axios";
 import styles from "./styles";
 import Button from "../../components/button";
-import { BASE_URL, USER } from "../../constants";
+import { BASE_URL, USER, colors } from "../../constants";
 
 class Form extends Component {
   static navigationOptions = {
@@ -16,6 +16,7 @@ class Form extends Component {
   };
   async componentDidMount() {
     try {
+      console.log("updateLoginState", this.props.updateLoginState);
       const stringUser = await AsyncStorage.getItem(USER);
       const user = JSON.parse(stringUser);
       this.setState({ user });
@@ -52,6 +53,10 @@ class Form extends Component {
     }
   };
 
+  logout = () => {
+    AsyncStorage.removeItem(USER, () => {});
+  };
+
   render() {
     const { text, loading } = this.state;
     return (
@@ -63,8 +68,18 @@ class Form extends Component {
             onChangeText={text => this.setState({ text })}
             value={text}
           />
-          <Button text="Submit" onPress={this.handleSubmit} loading={loading} />
+          <Button
+            text="Submit"
+            onPress={this.handleSubmit}
+            loading={loading}
+            color={colors.color_dark}
+          />
         </View>
+        <Button
+          text="Logout"
+          onPress={this.logout}
+          color={colors.color_primary}
+        />
       </View>
     );
   }

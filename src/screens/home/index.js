@@ -4,7 +4,7 @@ import OAuthManager from "react-native-oauth";
 import Config from "react-native-config";
 import Button from "../../components/button";
 import styles from "./styles";
-import { USER } from "../../constants";
+import { USER, colors } from "../../constants";
 
 const manager = new OAuthManager("AskSteve");
 
@@ -24,7 +24,6 @@ class Home extends Component {
       .then(resp => {
         AsyncStorage.setItem(USER, JSON.stringify(resp.response), err => {
           if (!err) {
-            console.log("User set in async storage");
             updateLoginState && updateLoginState();
           }
         });
@@ -36,7 +35,11 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button text="Login with Github" onPress={this.login} />
+        <Button
+          text="Login with Github"
+          onPress={this.login}
+          color={colors.color_dark}
+        />
       </View>
     );
   }
