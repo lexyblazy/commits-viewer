@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, AsyncStorage } from "react-native";
 import OAuthManager from "react-native-oauth";
+import Button from "../../components/button";
 import styles from "./styles";
+import { USER } from "../../constants";
 
 const manager = new OAuthManager("AskSteve");
 
@@ -14,25 +16,17 @@ const config = {
 manager.configure(config);
 
 class Home extends Component {
-  static navigationOptions = {
-    title: "Ask Steve",
-    headerStyle: {
-      backgroundColor: '#24292e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: '300',
-    },
-  };
-  componentDidMount() {}
-
   login = () => {
+    const { updateLoginState } = this.props;
     manager
       .authorize("github")
       .then(resp => {
-        console.log(resp);
-        const { navigation } = this.props;
-        navigation.navigate("Form");
+        AsyncStorage.setItem(USER, JSON.stringify(resp.response), err => {
+          if (!err) {
+            console.log("User set in async storage");
+            updateLoginState && updateLoginState();
+          }
+        });
       })
       .catch(e => {
         console.log(e);
@@ -41,9 +35,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this.login} style={styles.button}>
-          <Text style={styles.buttonText}>Login with Github </Text>
-        </TouchableOpacity>
+        <Button text="Login with Github" onPress={this.login} />
       </View>
     );
   }

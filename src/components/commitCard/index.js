@@ -1,10 +1,19 @@
 import React from "react";
 import styles from "./style";
+import { View, Text, Image } from "react-native";
+const defaultUrl =
+  "https://facebook.github.io/react-native/docs/assets/favicon.png";
+const showAuthors = (author, committer) => {
+  if (committer.name !== author.name) {
+    return `${author.name} authored and ${committer.name} committed`;
+  }
+  return `${author.name} committed`;
+};
 
 const Card = ({ commit }) => {
   const { message = "", author, committer } = commit.commit;
   return (
-    <View style={styles.commitCard} key={commit.sha}>
+    <View style={styles.commitCard}>
       <View style={styles.commitMain}>
         <View>
           <Text>
@@ -15,12 +24,12 @@ const Card = ({ commit }) => {
           <Image
             style={styles.authorImage}
             source={{
-              uri: commit.author.avatar_url
+              uri: (commit.author && commit.author.avatar_url) || defaultUrl
             }}
           />
-          <View style={{ paddingRight: 100 }}>
+          <View style={{ paddingRight: 70 }}>
             <Text>
-              {this.showAuthors(author, committer)} on{" "}
+              {showAuthors(author, committer)} on{" "}
               {new Date(author.date).toDateString()}
             </Text>
           </View>

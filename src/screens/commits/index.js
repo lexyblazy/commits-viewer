@@ -42,15 +42,10 @@ class CommitsList extends Component {
           Authorization: `token ${token}`
         }
       });
-      const commits = res.data;
-      this.setState(
-        {
-          commits: [...this.state.commits, ...commits]
-        },
-        () => {
-          console.log("Current page", this.page);
-        }
-      );
+      const OlderCommits = res.data;
+      this.setState({
+        commits: [...this.state.commits, ...OlderCommits]
+      });
     } catch (error) {
       console.log(error);
       const data = error && error.response && error.response.data;
@@ -66,19 +61,23 @@ class CommitsList extends Component {
 
   renderCommits = () => {
     const { commits = [], loading } = this.state;
+    console.log(commits[1])
     return (
       <FlatList
         data={commits}
         keyExtractor={item => item.sha}
         renderItem={({ item }) => <CommitCard commit={item} />}
         onEndReached={this.loadMoreCommits}
-        ListFooterComponent={
-          loading ? (
-            <ActivityIndicator color="#24292e" size="large" />
-          ) : (
-            <View />
-          )
-        }
+        ListFooterComponent={() => (
+          <View>
+            {loading ? (
+              <ActivityIndicator color="#24292e" size="large" />
+            ) : null}
+          </View>
+        )}
+        ListFooterComponentStyle={{
+          marginBottom: 50
+        }}
       />
     );
   };
@@ -86,7 +85,6 @@ class CommitsList extends Component {
     return (
       <View style={{ flex: 1 }}>
         <View>{this.renderCommits()}</View>
-        <View />
       </View>
     );
   }

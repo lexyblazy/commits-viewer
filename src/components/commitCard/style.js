@@ -1,9 +1,14 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../constants";
+
 export default StyleSheet.create({
   commitCard: {
     flexDirection: "row",
-    padding: 10
+    padding: 15,
+    backgroundColor: colors.color_grey_light_1,
+    borderWidth: 1,
+    borderColor: colors.color_grey_light_3
   },
   commitMain: {
     flex: 1

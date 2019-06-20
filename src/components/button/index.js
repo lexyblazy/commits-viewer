@@ -8,7 +8,7 @@ const Button = ({ text, onPress, loading = false }) => {
       style={styles.button}
     >
       {loading ? (
-        <ActivityIndicator />
+        <ActivityIndicator color="#fff" />
       ) : (
         <Text style={styles.buttonText}>{text || "Submit"}</Text>
       )}
