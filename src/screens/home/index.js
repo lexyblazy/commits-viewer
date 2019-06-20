@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, AsyncStorage } from "react-native";
 import OAuthManager from "react-native-oauth";
+import Config from "react-native-config";
 import Button from "../../components/button";
 import styles from "./styles";
 import { USER } from "../../constants";
@@ -9,8 +10,8 @@ const manager = new OAuthManager("AskSteve");
 
 const config = {
   github: {
-    client_id: "501ad4139f62f1ab76df",
-    client_secret: "954b1db94ddd0b447719fe3271dd15ece64c587c"
+    client_id: Config.CLIENT_ID,
+    client_secret: Config.CLIENT_SECRET
   }
 };
 manager.configure(config);
