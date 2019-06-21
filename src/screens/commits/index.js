@@ -8,12 +8,23 @@ import { BASE_URL, USER, colors } from "../../constants";
 import { handleAuth } from "../../actions";
 
 class CommitsList extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: "Commits",
+    headerRight: (
+      <Button
+        onPress={navigation.getParam("logout")}
+        text="Logout"
+        color={colors.color_dark}
+      />
+    )
+  });
+
   state = {
     commits: [],
-    title: "",
     loading: false,
     user: {}
   };
+
   async componentDidMount() {
     const { navigation } = this.props;
     navigation.setParams({ logout: this.logout });
@@ -27,25 +38,17 @@ class CommitsList extends Component {
       alert("An error occurred");
     }
   }
-  static navigationOptions = ({ navigation }) => ({
-    title: "Commits",
-    headerRight: (
-      <Button
-        onPress={navigation.getParam("logout")}
-        text="Logout"
-        color={colors.color_dark}
-      />
-    )
-  });
 
   logout = () => {
+    const { dispatch } = this.props;
     AsyncStorage.removeItem(USER, () => {
-      this.props.dispatch(handleAuth(false));
+      dispatch(handleAuth(false));
     });
   };
+
   loadMoreCommits = async () => {
     const { navigation } = this.props;
-    const { user } = this.state;
+    const { user, commits } = this.state;
     const repo = navigation.getParam("repo", []);
     const token = user.credentials.accessToken;
     this.page = this.page + 1;
@@ -60,7 +63,7 @@ class CommitsList extends Component {
       });
       const OlderCommits = res.data;
       this.setState({
-        commits: [...this.state.commits, ...OlderCommits]
+        commits: [...commits, ...OlderCommits]
       });
     } catch (error) {
       console.log(error);
@@ -96,6 +99,7 @@ class CommitsList extends Component {
       />
     );
   };
+
   render() {
     return (
       <View style={{ flex: 1 }}>

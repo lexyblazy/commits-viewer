@@ -1,8 +1,7 @@
-
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import CommitsScreen from "./screens/commits";
 import FormScreen from "./screens/form";
-import { USER, colors } from "./constants";
+import { colors } from "./constants";
 
 
 const AppNavigator = createStackNavigator(

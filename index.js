@@ -1,5 +1,5 @@
-import { AppRegistry, AsyncStorage } from "react-native";
 import React from "react";
+import { AppRegistry, AsyncStorage } from "react-native";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import App from "./src/App";
@@ -13,7 +13,6 @@ const store = createStore(reducer, {});
 const getAuthenticatedUser = () => {
   AsyncStorage.getItem(USER, (err, user) => {
     if (err) {
-      console.log({ err });
       store.dispatch(handleAuth(false));
     } else {
       if (user) {

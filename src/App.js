@@ -1,19 +1,12 @@
 import React, { Component } from "react";
-import { AsyncStorage } from "react-native";
-import Home from "./screens/home";
-import { USER } from "./constants";
-import AppWithNavigation from "./Navigator";
 import { connect } from "react-redux";
-import { handleAuth } from "./actions";
+import AppWithNavigation from "./Navigator";
+import Home from "./screens/home";
 
 class App extends Component {
   render() {
     const { isAuthenticated } = this.props;
-    return isAuthenticated ? (
-      <AppWithNavigation />
-    ) : (
-      <Home/>
-    );
+    return isAuthenticated ? <AppWithNavigation /> : <Home />;
   }
 }
 const mapStateToProps = (state = {}) => {
