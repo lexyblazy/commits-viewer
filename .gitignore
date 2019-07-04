@@ -1,6 +1,7 @@
 .env
 # OSX
 #
+ios/Pods
 .DS_Store
 
 # Xcode

@@ -4,3 +4,5 @@ use_frameworks!
 target 'steve_mobile' do
 
 pod 'DCTAuth', :git => 'https://github.com/danielctull/DCTAuth.git'
+
+end
