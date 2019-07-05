@@ -1,12 +1,24 @@
 PODS:
   - DCTAuth (3.0)
+  - React (0.11.0):
+    - React/Core (= 0.11.0)
+  - react-native-config (0.11.7):
+    - React
+  - React/Core (0.11.0)
 
 DEPENDENCIES:
   - DCTAuth (from `https://github.com/danielctull/DCTAuth.git`)
+  - react-native-config (from `../node_modules/react-native-config`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - React
 
 EXTERNAL SOURCES:
   DCTAuth:
     :git: https://github.com/danielctull/DCTAuth.git
+  react-native-config:
+    :path: "../node_modules/react-native-config"
 
 CHECKOUT OPTIONS:
   DCTAuth:
@@ -15,7 +27,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   DCTAuth: 8add154decd00335d62917828896bba790ce47fd
+  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
 
-PODFILE CHECKSUM: a81822d406299ec0c6b5a758dc79e184026e5022
+PODFILE CHECKSUM: 4f36774de733cdea756465ca8bf5b02d44dbe5e9
 
 COCOAPODS: 1.7.3

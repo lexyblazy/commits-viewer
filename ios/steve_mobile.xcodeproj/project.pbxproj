@@ -37,10 +37,12 @@
 		2DCD954D1E0B4F2C00145EB5 /* steve_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* steve_mobileTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		34A01D1FCEB249CEA0074D43 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8F9BAF5BF1C49C5951EB2D3 /* libRNGestureHandler.a */; };
+		3962B007426C18F3D4D9F76B /* Pods_steve_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A983A3C212F479AD9CFFEE6 /* Pods_steve_mobile.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		CE29933622CC98B900BFD968 /* libOAuthManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2C72B622CC02EA00CF262C /* libOAuthManager.a */; };
-		E6B0F120A0E51D17340EB50A /* Pods_steve_mobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A983A3C212F479AD9CFFEE6 /* Pods_steve_mobile.framework */; };
+		CE2BEC9D22CE15C90017D7B5 /* react_native_config.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2BEC9C22CE15C90017D7B5 /* react_native_config.framework */; };
+		CEEF0E6D22CE1A1E00710005 /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEEF0E6922CE19FE00710005 /* libReactNativeConfig.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 /* End PBXBuildFile section */
@@ -333,6 +335,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNGestureHandler;
 		};
+		CEEF0E6822CE19FE00710005 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEEF0E3D22CE19FE00710005 /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EB2648DF1C7BE17A00B8F155;
+			remoteInfo = ReactNativeConfig;
+		};
+		CEEF0E6A22CE19FE00710005 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEEF0E3D22CE19FE00710005 /* ReactNativeConfig.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3DF7F6AC203AA09B00D0EAB7;
+			remoteInfo = "ReactNativeConfig-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -369,6 +385,10 @@
 		C020F2BA42934E779E848644 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		C31C7A6AADFF481794BCEE04 /* OAuthManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = OAuthManager.xcodeproj; path = "../node_modules/react-native-oauth/ios/OAuthManager.xcodeproj"; sourceTree = "<group>"; };
 		CE14255A22CCAA150011E76C /* steve_mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = steve_mobile.entitlements; path = steve_mobile/steve_mobile.entitlements; sourceTree = "<group>"; };
+		CE2BEC7322CE15200017D7B5 /* react_native_config.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_config.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2BEC9C22CE15C90017D7B5 /* react_native_config.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = react_native_config.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2BECCE22CE18E70017D7B5 /* Pods */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pods; sourceTree = "<group>"; };
+		CEEF0E3D22CE19FE00710005 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		FD680783528C77DC5FB2A22D /* Pods-steve_mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-steve_mobile.release.xcconfig"; path = "Target Support Files/Pods-steve_mobile/Pods-steve_mobile.release.xcconfig"; sourceTree = "<group>"; };
@@ -387,6 +407,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEF0E6D22CE1A1E00710005 /* libReactNativeConfig.a in Frameworks */,
+				CE2BEC9D22CE15C90017D7B5 /* react_native_config.framework in Frameworks */,
 				CE29933622CC98B900BFD968 /* libOAuthManager.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -402,7 +424,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				34A01D1FCEB249CEA0074D43 /* libRNGestureHandler.a in Frameworks */,
-				E6B0F120A0E51D17340EB50A /* Pods_steve_mobile.framework in Frameworks */,
+				3962B007426C18F3D4D9F76B /* Pods_steve_mobile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +584,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE2BECCE22CE18E70017D7B5 /* Pods */,
+				CE2BEC9C22CE15C90017D7B5 /* react_native_config.framework */,
+				CE2BEC7322CE15200017D7B5 /* react_native_config.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
@@ -591,6 +616,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CEEF0E3D22CE19FE00710005 /* ReactNativeConfig.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -675,6 +701,15 @@
 			isa = PBXGroup;
 			children = (
 				CE2C72B922CC02EA00CF262C /* libRNGestureHandler.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEEF0E3E22CE19FE00710005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEEF0E6922CE19FE00710005 /* libReactNativeConfig.a */,
+				CEEF0E6B22CE19FE00710005 /* libReactNativeConfig-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -852,6 +887,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = CEEF0E3E22CE19FE00710005 /* Products */;
+					ProjectRef = CEEF0E3D22CE19FE00710005 /* ReactNativeConfig.xcodeproj */;
 				},
 				{
 					ProductGroup = CE2C72B222CC02E900CF262C /* Products */;
@@ -1142,6 +1181,20 @@
 			remoteRef = CE2C72B822CC02EA00CF262C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		CEEF0E6922CE19FE00710005 /* libReactNativeConfig.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReactNativeConfig.a;
+			remoteRef = CEEF0E6822CE19FE00710005 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEEF0E6B22CE19FE00710005 /* libReactNativeConfig-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libReactNativeConfig-tvOS.a";
+			remoteRef = CEEF0E6A22CE19FE00710005 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1201,10 +1254,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-steve_mobile/Pods-steve_mobile-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DCTAuth/DCTAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/React/React.framework",
+				"${BUILT_PRODUCTS_DIR}/react-native-config/react_native_config.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DCTAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/react_native_config.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>Github</string>
+			<string>github</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>AskSteve</string>
+				<string>asksteve</string>
 			</array>
 		</dict>
 	</array>
